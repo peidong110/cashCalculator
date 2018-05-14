@@ -32,19 +32,21 @@ class storage{
     }
     public double sum(){
 //        return (double) twoDollar * 2 + (double) oneDollar + twentyFiveCents * 0.25 + tenCents * 0.1 + fiveCents * 0.05;
-        return twoDollar * 2 + oneDollar + twentyFiveCents *0.25 + tenCents * 0.1 + fiveCents * 0.05;
+        return (double) twoDollar * 2 + (double) oneDollar +(double) twentyFiveCents *0.25 + (double) tenCents * 0.1 +(double) fiveCents * 0.05;
     }
     public String toString(){
-        return "We Currently have" + this.sum();
+        return "We Currently have " + this.sum();
     }
 }
 
     class address extends Pane{
-        public boolean isNumeric(String str)
-        {
-            return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
-        }
+        private int aTwo = 0;
+        private int aOne = 0;
+        private int aTwentyFive = 0;
+        private int aTen = 0;
+        private int aFive = 0;
         public address(String title){
+
             Pane innerPane = new Pane();
             innerPane.setStyle("-fx-background-color: white; " +
                     "-fx-border-color: gray; " +
@@ -75,6 +77,8 @@ class storage{
             twoDollar.setOnAction(event -> {
                 if (twoDollar.getText() != null && !twoDollar.getText().isEmpty() &&isNumeric(twoDollar.getText())){
                     System.out.println(123);
+                    aTwo = Integer.parseInt(twoDollar.getText());
+                    System.out.println(Integer.parseInt(twoDollar.getText()));
                     //update method
                 }
             });
@@ -86,6 +90,7 @@ class storage{
             oneDollar.setOnAction(event -> {
                 if (oneDollar.getText() != null && !oneDollar.getText().isEmpty() &&isNumeric(oneDollar.getText())){
                     System.out.println(123);
+                    aOne = Integer.parseInt(oneDollar.getText());
                     //update method
                 }
             });
@@ -97,6 +102,7 @@ class storage{
             twentyFiveCents.setOnAction(event -> {
                 if (twentyFiveCents.getText() != null && !twentyFiveCents.getText().isEmpty() &&isNumeric(twentyFiveCents.getText())){
                     System.out.println(123);
+                    aTwentyFive = Integer.parseInt(twentyFiveCents.getText());
                     //update method
                 }
             });
@@ -108,6 +114,7 @@ class storage{
             tenCents.setOnAction(event -> {
                 if (tenCents.getText() != null && !tenCents.getText().isEmpty() && isNumeric(tenCents.getText())){
                     System.out.println(123);
+                    aTen = Integer.parseInt(tenCents.getText());
                 }
             });
 
@@ -119,6 +126,7 @@ class storage{
             fiveCents.setOnAction(event -> {
                 if (fiveCents.getText() != null &&!fiveCents.getText().isEmpty() && isNumeric(fiveCents.getText())){
                     System.out.println(123);
+                    aFive = Integer.parseInt(fiveCents.getText());
                 }
             });
 
@@ -134,6 +142,9 @@ class storage{
 
             aButton.setOnAction(e->{
                 System.out.println("Call UPDATE METHOD");
+                storage a = new storage(aTwo,aOne,aTwentyFive,aTen,aFive);
+                System.out.println(a);
+                totalMoney.setText(a.toString());
             });
 // Add all labels and textfields to the pane
             innerPane.getChildren().addAll(label1, label2, label3, label4, label5,label6,
@@ -146,6 +157,13 @@ class storage{
                     "-fx-translate-x: 10;");
             getChildren().addAll(innerPane, titleLabel);
         }
+        public boolean isNumeric(String str)
+        {
+            return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
+        }
+        public int amtCoins(int amt){
+            return amt;
+        }
     }
 
 
@@ -155,8 +173,8 @@ class storage{
 public class moneyExchanger extends Application {
     public static void main(String[] args) {
         launch(args);
-        storage a = new storage(1,1,1,1,1);
-
+        storage a = new storage(3,3,3,3,3);
+        System.out.println(a);
 
     }
     public void start(Stage primaryStage) {
@@ -168,6 +186,7 @@ public class moneyExchanger extends Application {
         // Now add an AddressPane
         address myPanel = new address("Money Exchanger");
         myPanel.relocate(10,50);
+
         aPane.getChildren().add(myPanel);
         primaryStage.setTitle("Money Exchanger"); // Set title of window
         primaryStage.setResizable(false); // Make it non-resizable
