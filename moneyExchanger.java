@@ -40,6 +40,10 @@ class storage{
 }
 
     class address extends Pane{
+        public boolean isNumeric(String str)
+        {
+            return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
+        }
         public address(String title){
             Pane innerPane = new Pane();
             innerPane.setStyle("-fx-background-color: white; " +
@@ -63,21 +67,64 @@ class storage{
             Label label6 = new Label("Current Amt:");
             label6.relocate(10,195 );
             label6.setPrefSize(80,30 );
-            TextField nameField = new TextField();
-            nameField.relocate(100, 20);
-            nameField.setPrefSize(300, 30);
-            TextField streetField = new TextField();
-            streetField.relocate(100, 55);
-            streetField.setPrefSize(300, 30);
-            TextField cityField = new TextField();
-            cityField.relocate(100, 90);
-            cityField.setPrefSize(300, 30);
-            TextField provinceField = new TextField();
-            provinceField.relocate(100, 125);
-            provinceField.setPrefSize(300, 30);
-            TextField postalField = new TextField();
-            postalField.relocate(100, 160);
-            postalField.setPrefSize(300, 30);
+            TextField twoDollar = new TextField();
+            twoDollar.relocate(100, 20);
+            twoDollar.setPromptText("0");
+            twoDollar.setPrefSize(300, 30);
+            twoDollar.setPromptText("0");
+            twoDollar.setOnAction(event -> {
+                if (twoDollar.getText() != null && !twoDollar.getText().isEmpty() &&isNumeric(twoDollar.getText())){
+                    System.out.println(123);
+                    //update method
+                }
+            });
+
+            TextField oneDollar = new TextField();
+            oneDollar.relocate(100, 55);
+            oneDollar.setPrefSize(300, 30);
+            oneDollar.setPromptText("0");
+            oneDollar.setOnAction(event -> {
+                if (oneDollar.getText() != null && !oneDollar.getText().isEmpty() &&isNumeric(oneDollar.getText())){
+                    System.out.println(123);
+                    //update method
+                }
+            });
+
+            TextField twentyFiveCents = new TextField();
+            twentyFiveCents.relocate(100, 90);
+            twentyFiveCents.setPrefSize(300, 30);
+            twentyFiveCents.setPromptText("0");
+            twentyFiveCents.setOnAction(event -> {
+                if (twentyFiveCents.getText() != null && !twentyFiveCents.getText().isEmpty() &&isNumeric(twentyFiveCents.getText())){
+                    System.out.println(123);
+                    //update method
+                }
+            });
+
+            TextField tenCents = new TextField();
+            tenCents.relocate(100, 125);
+            tenCents.setPrefSize(300, 30);
+            tenCents.setPromptText("0");
+            tenCents.setOnAction(event -> {
+                if (tenCents.getText() != null && !tenCents.getText().isEmpty() &&isNumeric(tenCents.getText())){
+                    System.out.println(123);
+                    //update method
+                }
+            });
+
+            TextField fiveCents = new TextField();
+            fiveCents.relocate(100, 160);
+            fiveCents.setPrefSize(300, 30);
+            fiveCents.setPromptText("0");
+            tenCents.setOnAction(event -> {
+                if (fiveCents.getText() != null && !fiveCents.getText().isEmpty() &&isNumeric(fiveCents.getText())){
+                    System.out.println(1231232123);
+                    //update method
+                }
+                else
+                    System.out.println(311212);
+            });
+
             TextField totalMoney  = new TextField();
             totalMoney.relocate(100,195);
             totalMoney.setPrefSize(300,30);
@@ -91,7 +138,7 @@ class storage{
             });
 // Add all labels and textfields to the pane
             innerPane.getChildren().addAll(label1, label2, label3, label4, label5,label6,
-                    nameField, streetField, cityField, provinceField, postalField,totalMoney,aButton);
+                    twoDollar, oneDollar, twentyFiveCents, tenCents, fiveCents,totalMoney,aButton);
 // Make a title for border and add it as well as inner pane to main pane
             Label titleLabel = new Label(); // Title to be placed onto border
             titleLabel.setText(title); // Incoming constructor parameter
