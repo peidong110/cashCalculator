@@ -30,9 +30,15 @@ class storage{
         this.tenCents = d;
         this.fiveCents = e;
     }
-    public double sum(){
+    public float sum(){
+        System.out.println((float) twoDollar * 2 + (float) oneDollar +(float) twentyFiveCents *0.25 + (float) tenCents * 0.1 +(float) fiveCents * 0.05);
+        System.out.println(twoDollar * 2);
+        System.out.println(oneDollar);
+        System.out.println(twentyFiveCents *0.25 );
+        System.out.println(tenCents * 0.1);
+        System.out.println(fiveCents*0.05);
 //        return (double) twoDollar * 2 + (double) oneDollar + twentyFiveCents * 0.25 + tenCents * 0.1 + fiveCents * 0.05;
-        return (double) twoDollar * 2 + (double) oneDollar +(double) twentyFiveCents *0.25 + (double) tenCents * 0.1 +(double) fiveCents * 0.05;
+        return ((float) twoDollar * 2 )+ ((float) oneDollar) +((float) twentyFiveCents *0.25f )+ ((float) tenCents * 0.1f )+((float) fiveCents * 0.05f);
     }
     public String toString(){
         return "We Currently have " + this.sum();
