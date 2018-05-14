@@ -106,24 +106,23 @@ class storage{
             tenCents.setPrefSize(300, 30);
             tenCents.setPromptText("0");
             tenCents.setOnAction(event -> {
-                if (tenCents.getText() != null && !tenCents.getText().isEmpty() &&isNumeric(tenCents.getText())){
+                if (tenCents.getText() != null && !tenCents.getText().isEmpty() && isNumeric(tenCents.getText())){
                     System.out.println(123);
-                    //update method
                 }
             });
+
 
             TextField fiveCents = new TextField();
             fiveCents.relocate(100, 160);
             fiveCents.setPrefSize(300, 30);
             fiveCents.setPromptText("0");
-            tenCents.setOnAction(event -> {
-                if (fiveCents.getText() != null && !fiveCents.getText().isEmpty() &&isNumeric(fiveCents.getText())){
-                    System.out.println(1231232123);
-                    //update method
+            fiveCents.setOnAction(event -> {
+                if (fiveCents.getText() != null &&!fiveCents.getText().isEmpty() && isNumeric(fiveCents.getText())){
+                    System.out.println(123);
                 }
-                else
-                    System.out.println(311212);
             });
+
+
 
             TextField totalMoney  = new TextField();
             totalMoney.relocate(100,195);
